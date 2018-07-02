@@ -2,10 +2,23 @@
     box-sizing: border-box;
 }
 
-.slide {
-    display: none;
+.slider {
+    width: 400px;
+    height: 350px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.active {
-    display: block;
-}
+/*slides*/
+.slide1 {
+    background-image: url("https://loremflickr.com/400/350/dog");
+    background-color: red;
+  }
+.slide2 {
+    background-image: url("https://loremflickr.com/400/350/paris");
+    background-color: orange;
+  }
+.slide3 {
+    background-image: url("http://placekitten.com/400/350");
+    background-color: yellowgreen;
+  }
