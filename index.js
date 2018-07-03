@@ -1,6 +1,12 @@
 const Slider = {
     slides: ['slide1', 'slide2', 'slide3'],
+    circles1: ['circle1', 'circle-o', 'circle-o'],
+    circles2: ['circle-o', 'circle2', 'circle-o'],
+    circles3: ['circle-o', 'circle-o', 'circle3'],
     slideIndex: 0,
+    circles1Index: 0,
+    circles2Index: 0,
+    circles3Index: 0,
     init() {
       this.cacheDom();
       this.bindEventListeners();
@@ -8,70 +14,49 @@ const Slider = {
     },
     cacheDom() {
       this.sliderCarousal = document.querySelector('.slider');
-    //   this.slideImage = document.querySelector('.slide');
-      this.paginationIcons = document.querySelector('.pagination');
+      this.paginationIcon1 = document.querySelector('.circle1');
+      this.paginationIcon2 = document.querySelector('.circle2');
+      this.paginationIcon3 = document.querySelector('.circle3');
       this.previousArrow = document.querySelector('.fa-arrow-circle-left')
       this.nextArrow = document.querySelector('.fa-arrow-circle-right')
     },
     render(){
         this.sliderCarousal.classList.remove(...this.slides);
         this.sliderCarousal.classList.add(this.slides[this.slideIndex]);
+        this.paginationIcon1.classList.remove(...this.circles1);
+        this.paginationIcon1.classList.add(this.circles1[this.circles1Index]);
+        this.paginationIcon2.classList.remove(...this.circles2);
+        this.paginationIcon2.classList.add(this.circles2[this.circles2Index]);
+        this.paginationIcon3.classList.remove(...this.circles3);
+        this.paginationIcon3.classList.add(this.circles3[this.circles3Index]);
       },
     bindEventListeners() {
         this.previousArrow.addEventListener('click', this.showPreviousSlide.bind(this));
         this.nextArrow.addEventListener('click', this.showNextSlide.bind(this));
+        this.previousArrow.addEventListener('click', this.activatePreviousIcon.bind(this));
+        this.nextArrow.addEventListener('click', this.activateNextIcon.bind(this));
     },
     showPreviousSlide() {
         this.slideIndex = (this.slideIndex - 1 + this.slides.length) % this.slides.length;
         this.render();
     },
     showNextSlide() {
-        this.slideIndex = (this.slideIndex - 1 + this.slides.length) % this.slides.length;
+        this.slideIndex = (this.slideIndex + 1 + this.slides.length) % this.slides.length;
         this.render();
     },
+    activatePreviousIcon() {
+        this.circles1Index = (this.circles1Index - 1 + this.circles1.length) % this.circles1.length;
+        this.circles2Index = (this.circles2Index - 1 + this.circles2.length) % this.circles2.length;
+        this.circles3Index = (this.circles3Index - 1 + this.circles3.length) % this.circles3.length;
+        this.render();
+    },
+    activateNextIcon() {
+        this.circles1Index = (this.circles1Index + 1 + this.circles1.length) % this.circles1.length;
+        this.circles2Index = (this.circles2Index + 1 + this.circles2.length) % this.circles2.length;
+        this.circles3Index = (this.circles3Index + 1 + this.circles3.length) % this.circles3.length;
+        this.render();
+    }
 };
 
 Slider.init();
 window.Slider = Slider;
-
-
-
-
-// Import stylesheets
-// import './style.css';
-
-// const ColorBox = {
-//   colors: ['red', 'blue', 'green'],
-//   colorIndex: 0,
-//   init(){
-//     this.cacheDom();
-//     this.bindEventListeners();
-//     this.render();
-//   },
-//   cacheDom(){
-//     this.root = document.querySelector('#app');
-//     this.box = this.root.querySelector('.box');
-//     this.left = this.root.querySelector('.left');
-//     this.right = this.root.querySelector('.right');
-//   },
-//   bindEventListeners(){
-//     this.left.addEventListener('click', this.leftColorChange.bind(this));
-//     this.right.addEventListener('click', this.rightColorChange.bind(this));
-//   },
-//   render(){
-//     this.box.classList.remove(...this.colors);
-//     this.box.classList.add(this.colors[this.colorIndex]);
-//   },
-//   leftColorChange(){
-//     this.colorIndex = (this.colorIndex - 1 + this.colors.length) % this.colors.length;
-//     this.render();
-//   },
-//   rightColorChange(){
-//     this.colorIndex = (this.colorIndex + 1 + this.colors.length) % this.colors.length;
-//     this.render();
-//   }
-// };
-
-// ColorBox.init();
-// window.ColorBox = ColorBox;
-  

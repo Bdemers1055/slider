@@ -3,22 +3,71 @@
 }
 
 .slider {
+    position: relative;
+    display: flex;
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.container {
     width: 400px;
     height: 350px;
-    margin-left: auto;
-    margin-right: auto;
+    overflow: hidden;
+}
+
+.fas {
+    position: absolute;
+    top: 40%;
+    bottom: 0;
+}
+
+.fa-arrow-circle-left {
+    left: 20px;
+}
+.fa-arrow-circle-right {
+    right: 20px;
 }
 
 /*slides*/
 .slide1 {
-    background-image: url("https://loremflickr.com/400/350/dog");
-    background-color: red;
+    left: 0;
+    /* background-image: url("https://loremflickr.com/400/350/dog");
+    background-color: red; */
   }
 .slide2 {
-    background-image: url("https://loremflickr.com/400/350/paris");
-    background-color: orange;
+    left: -400px;
+    /* background-image: url("https://loremflickr.com/400/350/paris");
+    background-color: orange; */
   }
 .slide3 {
+    left: -800px;
+    /* margin-left: 0px;
     background-image: url("http://placekitten.com/400/350");
-    background-color: yellowgreen;
+    background-color: yellowgreen; */
   }
+
+.circle-o {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: solid gray 2px;    
+}  
+
+.circle1 {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: red;
+  }  
+.circle2 {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: orange;
+}
+.circle3 {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: yellowgreen;
+}
