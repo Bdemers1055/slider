@@ -21,8 +21,7 @@ const Slider = {
       this.nextArrow = document.querySelector('.fa-arrow-circle-right')
     },
     render(){
-        this.sliderCarousal.classList.remove(...this.slides);
-        this.sliderCarousal.classList.add(this.slides[this.slideIndex]);
+        this.sliderCarousal.style.right = `${400 * this.slideIndex}px`;
         this.paginationIcon1.classList.remove(...this.circles1);
         this.paginationIcon1.classList.add(this.circles1[this.circles1Index]);
         this.paginationIcon2.classList.remove(...this.circles2);
