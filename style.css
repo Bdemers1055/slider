@@ -5,8 +5,7 @@
 .slider {
     position: relative;
     display: flex;
-    padding-right: 0;
-    padding-left: 0;
+    justify-content: center;
 }
 
 .container {
@@ -28,23 +27,6 @@
     right: 20px;
 }
 
-/*slides*/
-.slide1 {
-    left: 0;
-    /* background-image: url("https://loremflickr.com/400/350/dog");
-    background-color: red; */
-  }
-.slide2 {
-    left: -400px;
-    /* background-image: url("https://loremflickr.com/400/350/paris");
-    background-color: orange; */
-  }
-.slide3 {
-    left: -800px;
-    /* margin-left: 0px;
-    background-image: url("http://placekitten.com/400/350");
-    background-color: yellowgreen; */
-  }
 
 .circle-o {
     width: 20px;

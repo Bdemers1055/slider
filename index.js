@@ -1,5 +1,4 @@
 const Slider = {
-    slides: ['slide1', 'slide2', 'slide3'],
     circles1: ['circle1', 'circle-o', 'circle-o'],
     circles2: ['circle-o', 'circle2', 'circle-o'],
     circles3: ['circle-o', 'circle-o', 'circle3'],
@@ -14,6 +13,7 @@ const Slider = {
     },
     cacheDom() {
       this.sliderCarousal = document.querySelector('.slider');
+      this.slides = this.sliderCarousal.querySelectorAll('img');
       this.paginationIcon1 = document.querySelector('.circle1');
       this.paginationIcon2 = document.querySelector('.circle2');
       this.paginationIcon3 = document.querySelector('.circle3');
@@ -21,7 +21,7 @@ const Slider = {
       this.nextArrow = document.querySelector('.fa-arrow-circle-right')
     },
     render(){
-        this.sliderCarousal.style.right = `${400 * this.slideIndex}px`;
+        this.sliderCarousal.style.right = `${400 * (this.slideIndex - 1)}px`;
         this.paginationIcon1.classList.remove(...this.circles1);
         this.paginationIcon1.classList.add(this.circles1[this.circles1Index]);
         this.paginationIcon2.classList.remove(...this.circles2);
@@ -36,7 +36,7 @@ const Slider = {
         this.nextArrow.addEventListener('click', this.activateNextIcon.bind(this));
     },
     showPreviousSlide() {
-        this.slideIndex = (this.slideIndex - 1 + this.slides.length) % this.slides.length;
+        this.slideIndex = (this.slideIndex + 1 + this.slides.length) % this.slides.length;
         this.render();
     },
     showNextSlide() {
