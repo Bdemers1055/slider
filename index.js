@@ -28,7 +28,7 @@ const Slider = {
   },
   showPreviousSlide() {
     this.slideIndex =
-      (this.slideIndex + 1 + this.slides.length) % this.slides.length;
+      (this.slideIndex - 1 + this.slides.length) % this.slides.length;
     this.render();
   },
   showNextSlide() {
